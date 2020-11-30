@@ -1,0 +1,432 @@
+*{
+ box-sizing: border-box;
+}
+body{
+ color: #ccc;
+}
+.header{
+ background-color: #333;
+ border-bottom: 1px solid #ddd;
+}
+.header a{
+ color: #03A9F4;
+}
+main{
+ background-color: #333;
+ padding: 1rem 0;
+}
+h1{
+ color: #03A9F4;
+}
+.pomodoro-container{
+ align-items: center;
+ border: 1rem solid #ddd;
+ border-radius: 50%;
+ display: flex;
+ flex-direction: column;
+ height: 500px;
+ justify-content: center;
+ margin: 2rem 0;
+ vertical-align: middle;
+ width: 500px;
+}
+.pomodoro-container-on{
+ border: 1rem solid tomato;
+}
+.focus{
+ cursor: pointer;
+ color: #aaa;
+ padding: 1rem 0;
+ font-size: 1.4rem;
+}
+.timer{
+ font-size: 2.5rem;
+ font-weight: bold;
+ color: tomato;
+ padding: 2rem 0;
+
+}
+.dial-center {
+ width: 100%;
+ display:flex;
+ justify-content:center;
+}
+.dial {
+ overflow: hidden;
+ height: 80px;
+ width: 300px;
+ margin: 4px;
+ border-radius: 2px;
+}
+.fader {
+ position: absolute;
+ z-index: 1;
+ width: 300px;
+ height: 80px;
+ background: -webkit-gradient(linear, 0 0, 100% 0, from(#444), to(#444), color-stop(85%, rgba(68,68,68,0)),color-stop(15%, rgba(68,68,68,0)));
+}
+.timeline {
+ width: 500px;
+ margin-left: -275px;
+}
+.timeline-pointer-full{
+ animation-name: pointerTimelineFull;
+ animation-duration: 1500s;
+ animation-iteration-count: 1;
+ animation-direction: normal;
+ animation-timing-function: linear;
+}
+.timeline-pointer-5min{
+ animation-name: pointerTimeline5min;
+ animation-duration: 300s;
+ animation-iteration-count: 1;
+ animation-direction: normal;
+ animation-timing-function: linear;
+}
+.timeline-pointer-paused{
+ animation-play-state: paused;
+}
+@keyframes pointerTimelineFull {
+ 0% {margin-left: -275px}
+ 100% {margin-left: 75px}
+}
+@keyframes pointerTimeline5min {
+ 0% {margin-left: 5px}
+ 100% {margin-left: 75px}
+}
+.spacer {
+ box-sizing: border-box;
+ font-size: 24px;
+ display: inline-block;
+ width: 10px;
+ height: 30px;
+ margin: 0;
+ text-align: center;
+ position: relative;
+}
+.work {
+ /* color: #0b5; */
+ color: tomato;
+}
+.number {
+ font-size: 1.6rem;
+ display:flex;
+ justify-content:center;
+}
+.pointer {
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ align-items:flex-end;
+ position: relative;
+ height: 5px;
+ -webkit-transition: height 1s;
+ transition: height 1s;
+ height: 25px;
+}
+.triangle {
+ position: absolute;
+ top: -17px;
+ width: 0;
+ height: 0;
+ border-style: solid;
+ border-width: 0 calc(7px * 1.5) calc(17.3px * 1.5) calc(7px * 1.5);
+ /* border-color: transparent transparent #0b5 transparent; */
+ border-color: transparent transparent tomato transparent;
+}
+.cycles{
+ color: tomato;
+ font-size: 1.2rem;
+}
+.buttons button{
+ font-size: 1.4rem;
+ margin: 1rem 0;
+ color: #333;
+ width: 70px;
+ height: 43.75px;
+ border: none;
+}
+.buttons button:disabled{
+ filter: grayscale(0.75);
+}
+.buttons button:nth-of-type(1){
+ background-color: #81C784;
+}
+.buttons button:nth-of-type(2){
+ background-color: #64B5F6;
+}
+.buttons button:nth-of-type(3){
+ background-color: #E57373;
+}
+.buttons-opacity{
+ opacity: .25;
+}
+.todo-list-container{
+ height: auto;
+ padding: 1rem;
+ width: 500px;
+}
+.todo-title{
+ color: #ddd;
+ font-size: 1.4rem;
+}
+.todo-list-form{
+ padding: 1rem;
+}
+.todo-input{
+ border: none;
+ margin: 0;
+ padding: .5rem;
+ width: 350px;
+}
+.todo-btn{
+ border: none;
+ padding: .5rem;
+ background: #66BB6A;
+ color: #333;
+ cursor: pointer;
+}
+.todo-list{
+ color: #ddd;
+ padding: 1rem;
+ text-align: left;
+}
+.todo-list-ul{
+ margin: 0;
+ padding: 0;
+}
+.todo-list-li{
+ background: #ddd;
+ color: #333;
+ cursor: pointer;
+ font-size: 1.2rem;
+ list-style-type: none;
+ padding: .5rem;
+ position: relative;
+ text-align: center;
+ transition: 0.2s;
+ user-select: none;
+}
+.todo-list-li:nth-child(odd){
+ background: #ccc;
+}
+.todo-list-li:hover{
+ background: #ddd;
+}
+.todo-list-li.checked{
+ background: #888;
+ color: #fff;
+ text-decoration: line-through;
+}
+.todo-list-li.checked::before{
+ content: '';
+ position: absolute;
+ border-color: #fff;
+ border-style: solid;
+ border-width: 0 2px 2px 0;
+ top: .5rem;
+ left: 1rem;
+ width: .5rem;
+ height: 1rem;
+ transform: rotate(45deg);
+}
+.todo-list-li-close {
+ position: absolute;
+ right: 0;
+ top: 0;
+ bottom: 0;
+ padding: 1rem;
+ font-size: 1rem;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.todo-list-li-close:hover {
+ background-color: #E57373;
+ color: #FFEBEE;
+}
+
+.snackbar{
+ visibility: hidden;
+ min-width: 250px;
+ margin-left: -125px;
+ /* background-color: #333; */
+ color: #fff;
+ text-align: center;
+ border-radius: 2px;
+ padding: 16px;
+ position: fixed;
+ z-index: 1;
+ left: 50%;
+ bottom: 30px;
+ font-size: 17px;
+}
+.snackbar-success{
+ background-color: #4CAF50;
+}
+.snackbar-warning{
+ background-color: #FFC107;
+}
+.snackbar-danger{
+ background-color: #F44336;
+}
+.show-snackbar{
+ visibility: visible;
+ animation: fadein .5s, fadeout .5s 2.5s;
+}
+@keyframes fadein{
+ from {bottom: 0; opacity: 0;}
+ to {bottom: 30px; opacity: 1;}
+}
+@keyframes fadeout {
+ from {bottom: 30px; opacity: 1;}
+ to {bottom: 0; opacity: 0;}
+}
+
+.blinker{
+ animation: blinker 1s cubic-bezier(.5, 0, 1, 1) infinite;
+}
+@keyframes blinker {
+ 0% {opacity: 1.0;}
+ 50% { opacity: 0.5;}
+ 100% { opacity: 1.0;}
+}
+
+.footer{
+ background-color: #333;
+ color: #ddd;
+ border-top: 1px solid #ddd;
+}
+.footer strong{
+ color: #03A9F4;
+}
+
+@mixin smartphone {
+ @media screen and (min-width: 320px) and (max-width: 375.98px) {
+  @content;
+ }
+}
+@mixin big-smartphone {
+ @media screen and (min-width: 376px) and (max-width: 449.98px) {
+  @content;
+ }
+}
+@mixin extra-smartphone {
+ @media screen and (min-width: 450px) and (max-width: 575.98px) {
+  @content;
+ }
+}
+@mixin mobile {
+ @media screen and (min-width: 320px) and (max-width: 575.98px) {
+  @content;
+ }
+}
+@include mobile(){
+ .focus{
+  font-size: 1rem;
+  padding: .5rem 0;
+ }
+ .timer{
+  font-size: 1.8rem;
+  padding: 1rem 0;
+ }
+ .buttons{
+  padding: .5rem;
+  margin: .5rem 0;
+ }
+ .dial {
+  overflow: hidden;
+  height: 4rem;
+  width: 225px;
+  margin: .25rem;
+  border-radius: 2px;
+ }
+ .fader {
+  width: 225px;
+ }
+ .timeline{
+  margin-left: -312.25px;
+ }
+ @keyframes pointerTimelineFull {
+  0% {margin-left: -312.25px}
+  100% {margin-left: 37.75px}
+ }
+ @keyframes pointerTimeline5min {
+  0% {margin-left: -32.25px}
+  100% {margin-left: 37.75px}
+ }
+ .todo-title{
+  font-size: 1.2rem;
+ }
+}
+@include smartphone(){
+ .pomodoro-container{
+  height: 300px;
+  width: 300px;
+ }
+ .focus{
+  padding: .25rem 0;
+ }
+ .timer{
+  font-size: 1.4rem;
+  padding: .5rem 0;
+ }
+ .number{
+  font-size: 1.2rem;
+ }
+ .dial{
+  width: 200px;
+ }
+ .fader{
+  width: 200px;
+ }
+ .timeline{
+  margin-left: -324.5px;
+ }
+ .pointer{
+  height: 0;
+ }
+ @keyframes pointerTimelineFull {
+  0% {margin-left: -324.5px}
+  100% {margin-left: 25.5px}
+ }
+ @keyframes pointerTimeline5min {
+  0% {margin-left: -44.5px}
+  100% {margin-left: 25.5px}
+ }
+
+
+ .todo-list-container{
+  width: 320px;
+ }
+ .todo-input{
+  width: 170px;
+ }
+}
+@include big-smartphone(){
+ .pomodoro-container{
+  height: 360px;
+  width: 360px;
+ }
+ .pointer{
+  height: 12.5px;
+ }
+ .todo-list-container{
+  width: 376px;
+ }
+ .todo-input{
+  width: 225px;
+ }
+}
+@include extra-smartphone(){
+ .pomodoro-container{
+  height: 410px;
+  width: 410px;
+ }
+ .todo-list-container{
+  width: 450px;
+ }
+ .todo-input{
+  width: 300px;
+ }
+}
